@@ -255,7 +255,7 @@ static dimension_t calculate_dimensions(GSList *layouts)
                                 dim.w = scr->dim.w - xctx.geometry.x * 2;
                         } else if (have_dynamic_width() || (total_width < xctx.geometry.w && settings.shrink)) {
                                 /* set width to text width */
-                                dim.w = total_width + 2 * settings.frame_width;
+                                dim.w = MAX(total_width + 2 * settings.frame_width, settings.min_notification_width);
                         }
 
                         /* re-setup the layout */
